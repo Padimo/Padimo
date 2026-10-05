@@ -8,6 +8,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://Padimo.github.io',
-  base: '/Padimo'
+  site: 'https://aadarshshah.com'
 });
