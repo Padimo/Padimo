@@ -1,2 +1,2 @@
-Hi, I'm Aadarsh!
-[Check out my portfolio](https://aadarshshah.com)
+Hi, I'm Aadarsh!\
+[Check out my portfolio here.](https://aadarshshah.com)
