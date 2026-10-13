@@ -1,0 +1,352 @@
+---
+import "../../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A reusable ESP32-S3 robot controller PCB for Science Olympiad Robot Tour and Electric Vehicle."
+    />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Robot Template</title>
+  </head>
+
+  <body
+    class="bg-[#0b1126] text-slate-200 selection:bg-[#aaccff] selection:text-[#113399]"
+  >
+    <div
+      class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0"
+    >
+      <div class="lg:flex lg:justify-between lg:gap-16">
+        <header
+          class="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[38%] lg:min-w-[360px] lg:flex-col lg:justify-center lg:py-16 mb-10"
+        >
+          <div
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-8 shadow-2xl shadow-blue-950/20 backdrop-blur"
+          >
+            <div
+              class="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl"
+            >
+            </div>
+
+            <p
+              class="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[#aaccff]"
+            >
+              Project Writeup
+            </p>
+
+            <h1
+              class="mb-4 text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              Robot<br />Template
+            </h1>
+
+            <p class="max-w-sm text-base leading-7 text-slate-400">
+              A reusable PCB for Science Olympiad robots, designed to make
+              future builds more reliable and repeatable.
+            </p>
+
+            <nav class="mt-8 hidden lg:block">
+              <div class="space-y-5">
+                <a
+                  href="#overview"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Overview
+                </a>
+
+                <a
+                  href="#requirements"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Requirements
+                </a>
+
+                <a
+                  href="#electronics"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Electronics
+                </a>
+
+                <a
+                  href="#navigation"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Navigation & Power
+                </a>
+
+                <a
+                  href="#testing"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Testing
+                </a>
+
+                <a
+                  href="#lessons"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Final Thoughts
+                </a>
+
+                <a
+                  href="/projects"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-[#aaccff] transition hover:text-white"
+                >
+                  <span
+                    class="h-px w-10 bg-[#aaccff] transition-all group-hover:w-16"
+                  ></span>
+                  Return to Projects
+                </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <main class="w-full lg:w-[62%] lg:py-24">
+          <section id="overview" class="scroll-mt-16">
+            <div
+              class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035]"
+            >
+              <img
+                src="/images/robot-hero.png"
+                alt="Assembled robot template circuit board"
+                class="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+            <div class="mt-8">
+              <p class="text-lg leading-8 text-slate-300">
+                For Science Olympiad, I compete in Robot Tour and Electric
+                Vehicle. Both events require a device that traverses a track
+                under electrical power, and I had struggled to build a robot
+                that could reliably navigate those tracks.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                This robot template is a reusable starting point. It is
+                explicitly a work in progress, but the goal is to make the
+                electrical platform dependable enough that future builds can
+                focus on the event-specific mechanics.
+              </p>
+            </div>
+          </section>
+
+          <section id="requirements" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Requirements
+            </h2>
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">01</div>
+                <h3 class="mt-8 text-xl font-medium text-white">Four motors</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Run up to four motors individually.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">02</div>
+                <h3 class="mt-8 text-xl font-medium text-white">
+                  Independent start
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Use a button separate from BOOT and RESET so programming does
+                  not immediately start the course.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">03</div>
+                <h3 class="mt-8 text-xl font-medium text-white">Dual power</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Support both USB and an external battery supply.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">04</div>
+                <h3 class="mt-8 text-xl font-medium text-white">
+                  Direction sensing
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Include an onboard sensor for determining direction.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section id="electronics" class="mt-20 scroll-mt-16">
+            <div
+              class="mt-8 grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center"
+            >
+              <div>
+                <h2
+                  class="mb-8 text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+                >
+                  Electronics
+                </h2>
+                <p class="leading-7 text-slate-400">
+                  I chose the L293DD motor driver as a surface-mount equivalent
+                  of the common L293N. Voltage-regulating capacitors were added
+                  to help prevent transients from damaging components.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  The microcontroller is an ESP32-S3-WROOM. BOOT and RESET
+                  buttons handle programming, while a third button starts the
+                  course. A slide switch selects between USB and battery power.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <img
+                  src="/images/robot-pcb.png"
+                  alt="PCB layout of the robot template"
+                  class="w-full rounded-2xl border border-white/10"
+                />
+                <img
+                  src="/images/robot-schematic.png"
+                  alt="Schematic of the robot template"
+                  class="w-full rounded-2xl border border-white/10"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="navigation" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Navigation & power
+            </h2>
+            <div class="mt-8 grid gap-8 md:grid-cols-2">
+              <div>
+                <p class="leading-7 text-slate-400">
+                  The previous robot used an accelerometer/gyroscope
+                  combination, but its drift was too large. This version uses a
+                  LIS2MDL magnetometer instead, relying on Earth's magnetic
+                  field for an absolute orientation measurement.
+                </p>
+              </div>
+              <div>
+                <p class="leading-7 text-slate-400">
+                  For Electric Vehicle, high speed matters more than finely
+                  controlled speed, so the power system uses an LM1084-3v3
+                  linear regulator with a maximum current output of 5 A.
+                </p>
+              </div>
+            </div>
+            <div
+              class="mt-8 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035]"
+            >
+              <img
+                src="/images/robot-track.png"
+                alt="Science Olympiad track layout"
+                class="w-full"
+              />
+            </div>
+          </section>
+
+          <section id="testing" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Testing & iteration
+            </h2>
+            <div
+              class="mt-8 rounded-3xl border border-white/10 bg-white/[0.035] p-7 sm:p-9"
+            >
+              <p class="text-lg leading-8 text-slate-300">
+                The first PCB connected to battery power produced the dreaded
+                “magic smoke.” Fortunately, the components survived: a copper
+                power trace had simply overheated. I bypassed it with a wire
+                directly to the slide switch.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                I also discovered that the magnetometer was missing I²C pull-up
+                resistors. Those will have to be soldered onto the board before
+                the sensor can provide data.
+              </p>
+            </div>
+            <div class="mt-8 grid gap-4 sm:grid-cols-3">
+              <img
+                src="/images/robot-battery-test.png"
+                alt="Robot board connected to battery and motor"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/robot-motor-test.png"
+                alt="Testing a standard DC motor with a large Lego wheel"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/robot-final.png"
+                alt="Robot template circuit board"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+            </div>
+          </section>
+
+          <section id="lessons" class="mt-20 scroll-mt-16 pb-24">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Final Thoughts
+            </h2>
+            <div class="mt-8">
+              <p class="text-lg leading-8 text-slate-300">
+                This project reinforced the idea that simplicity is often the
+                path to success. An earlier attempt at an extremely compact
+                omnidirectional robot was difficult to solder and debug because
+                so many tiny components had to work simultaneously.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                The robot template has worked exceptionally well for both
+                Electric Vehicle and Robot Tour testing, and these boards have
+                incredible potential moving forward (even despite the lack of
+                sensors).
+              </p>
+            </div>
+            <div
+              class="mt-10 flex items-center justify-between border-t border-white/10 pt-6 text-xs text-slate-600"
+            >
+              <span>Robot Template</span>
+              <a href="#overview" class="transition hover:text-slate-300"
+                >Back to top ↑</a
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

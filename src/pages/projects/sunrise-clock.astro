@@ -1,0 +1,457 @@
+---
+import "../../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A custom ESP32 sunrise alarm clock built with addressable LEDs, 3D printed parts, and custom animations."
+    />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Sunrise Alarm Clock</title>
+  </head>
+
+  <body
+    class="bg-[#0b1126] text-slate-200 selection:bg-[#aaccff] selection:text-[#113399]"
+  >
+    <div
+      class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0"
+    >
+      <div class="lg:flex lg:justify-between lg:gap-16">
+        <!-- Sticky project header -->
+        <header
+          class="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[38%] lg:min-w-[360px] lg:flex-col lg:justify-center lg:py-16 mb-10"
+        >
+          <div
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-8 shadow-2xl shadow-blue-950/20 backdrop-blur"
+          >
+            <div
+              class="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl"
+            >
+            </div>
+
+            <p
+              class="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[#aaccff]"
+            >
+              Project Writeup
+            </p>
+
+            <h1
+              class="mb-4 text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              Sunrise<br />Alarm Clock
+            </h1>
+
+            <p class="max-w-sm text-base leading-7 text-slate-400">
+              An alarm clock built to reinforce a consistent circadian rhythm
+              using light.
+            </p>
+
+            <nav class="mt-8 hidden lg:block">
+              <div class="space-y-5">
+                <a
+                  href="#overview"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Overview
+                </a>
+
+                <a
+                  href="#build"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Build
+                </a>
+
+                <a
+                  href="/projects"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-[#aaccff] transition hover:text-white"
+                >
+                  <span
+                    class="h-px w-10 bg-[#aaccff] transition-all group-hover:w-16"
+                  ></span>
+                  Return to Projects
+                </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <main class="w-full lg:w-[62%] lg:py-24">
+          <!-- Overview -->
+          <section id="overview" class="scroll-mt-16">
+            <div
+              class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035]"
+            >
+              <img
+                src="/images/hero-clock.png"
+                alt="Sunrise alarm clock lit with a warm yellow ring"
+                class="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+
+            <div class="mt-8 grid gap-8 md:grid-cols-[1fr_auto] md:items-start">
+              <div>
+                <p class="text-lg leading-8 text-slate-300">
+                  My old alarm clock had a snooze button and a stop button. If I
+                  wanted more sleep, I could simply stop the alarm for another
+                  24 hours. So I built something that couldn't be so easily
+                  ignored.
+                </p>
+                <p class="mt-5 leading-7 text-slate-400 pb-0">
+                  I took it upon myself to create an alarm clock that:
+                </p>
+                <ul class="mt-5 leading-7 text-slate-400 list-disc pl-3 pt-0">
+                  <li>I can't turn it off if I want more sleep.</li>
+                  <li>Uses LOTS of light to wake me up.</li>
+                  <li>Looks cool.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Features -->
+          <section id="features" class="mt-28 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Features
+            </h2>
+
+            <div class="mt-5 grid gap-4 md:grid-cols-3">
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">01</div>
+                <h3 class="mt-8 text-xl font-medium text-white">Word clock</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  The center display tells the time to the nearest quarter hour.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">02</div>
+                <h3 class="mt-8 text-xl font-medium text-white">
+                  Sunrise animation
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Light ramps up gradually instead of turning on at full
+                  brightness.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">03</div>
+                <h3 class="mt-8 text-xl font-medium text-white">
+                  Compass animation
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  A directional animation connects the center clock to the outer
+                  ring.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- Word clock -->
+          <section id="word-clock" class="mt-28 scroll-mt-16">
+            <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+              <div>
+                <h2
+                  class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+                >
+                  Word Clock
+                </h2>
+                <p class="mt-5 leading-7 text-slate-400">
+                  The word clock sits at the center of the piece. A 3D-printed
+                  mask forms the front layer, while two fresnel lenses and a
+                  matte diffusion layer (all recycled from an old laptop
+                  display) spread the light behind it.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  At the bottom is a matrix of 64 WS2812B addressable LEDs.
+                  Wiring the LEDs in series reduces the number of
+                  microcontroller pins needed to drive the matrix.
+                </p>
+              </div>
+
+              <div class="space-y-4">
+                <img
+                  src="/images/word-clock.png"
+                  alt="Close-up of the illuminated word clock"
+                  class="w-full rounded-2xl border border-white/10"
+                />
+                <div class="grid grid-cols-2 gap-4">
+                  <img
+                    src="/images/word-mask.jpeg"
+                    alt="3D printed word mask"
+                    class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+                  />
+                  <img
+                    src="/images/led-matrix.jpeg"
+                    alt="LED matrix behind the word clock"
+                    class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Compass -->
+          <section id="compass" class="mt-20 scroll-mt-16">
+            <div
+              class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035]"
+            >
+              <img
+                src="/images/compass.jpeg"
+                alt="Compass-shaped light structure around the clock"
+                class="aspect-[16/8] w-full object-cover"
+              />
+            </div>
+
+            <div class="mt-10 grid gap-8">
+              <div>
+                <h2
+                  class="mt-15 text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+                >
+                  Compass
+                </h2>
+              </div>
+              <div>
+                <p class="mt-0 max-w-2xl leading-7 text-slate-400">
+                  I needed a way to connect the outer ring lamp to the inner
+                  word clock. The original plan used three connecting pieces,
+                  but I wanted those pieces to become part of the visual
+                  language. The final shape was inspired by Apple's Safari logo.
+                </p>
+                <p class="mt-4 max-w-2xl leading-7 text-slate-400">
+                  The animation is inspired by the Pacifica example in the
+                  FastLED library. I generalized the effect so hue, saturation,
+                  and variance could be supplied by a Firebase database.
+                </p>
+                <div
+                  class="mt-8 overflow-hidden rounded-2xl border border-white/10"
+                >
+                  <img
+                    src="/images/compass-blue.jpeg"
+                    alt="Blue compass animation"
+                    class="w-full"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Build -->
+          <section id="build" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Build Process
+            </h2>
+
+            <div class="mt-10 space-y-5">
+              <article
+                class="grid gap-6 rounded-2xl border border-white/10 bg-white/[0.035] p-6 md:grid-cols-[120px_1fr]"
+              >
+                <div class="text-sm text-slate-500">01</div>
+                <div>
+                  <h3 class="text-xl font-medium text-white">Ring lamp</h3>
+                  <p class="mt-2 leading-7 text-slate-400">
+                    Eight 3D-printed pieces form the outer ring. LED strips run
+                    along the inner faces, with MOSFETs handling the power
+                    switching between the 3.3 V control signal and the 5 V LED
+                    supply.
+                  </p>
+                </div>
+              </article>
+
+              <article
+                class="grid gap-6 rounded-2xl border border-white/10 bg-white/[0.035] p-6 md:grid-cols-[120px_1fr]"
+              >
+                <div class="text-sm text-slate-500">02</div>
+                <div>
+                  <h3 class="text-xl font-medium text-white">Word clock</h3>
+                  <p class="mt-2 leading-7 text-slate-400">
+                    The front is a three-layer optical stack, while the back
+                    contains the microcontroller and wiring. Four
+                    capacitive-touch inputs provide physical controls for
+                    brightness, settings, and the ring lamp.
+                  </p>
+                </div>
+              </article>
+
+              <article
+                class="grid gap-6 rounded-2xl border border-white/10 bg-white/[0.035] p-6 md:grid-cols-[120px_1fr]"
+              >
+                <div class="text-sm text-slate-500">03</div>
+                <div>
+                  <h3 class="text-xl font-medium text-white">
+                    Compass network
+                  </h3>
+                  <p class="mt-2 leading-7 text-slate-400">
+                    The compass was printed in 12 parts. Each edge uses two
+                    LED-carrying pieces covered by a longer shell that hides the
+                    joints.
+                  </p>
+                </div>
+              </article>
+
+              <article
+                class="grid gap-6 rounded-2xl border border-white/10 bg-white/[0.035] p-6 md:grid-cols-[120px_1fr]"
+              >
+                <div class="text-sm text-slate-500">04</div>
+                <div>
+                  <h3 class="text-xl font-medium text-white">Code</h3>
+                  <p class="mt-2 leading-7 text-slate-400">
+                    The ESP32 coordinates the LEDs, animations, time data, and
+                    Firebase settings, while a separate task handles the gradual
+                    sunrise brightness ramp.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <img
+                src="/images/ring-model.png"
+                alt="3D model of a ring segment"
+                class="rounded-2xl border border-white/10 bg-white p-3"
+              />
+              <img
+                src="/images/ring-leds.jpeg"
+                alt="LED strips installed in the ring"
+                class="rounded-2xl border border-white/10 object-cover"
+              />
+            </div>
+          </section>
+
+          <!-- Gallery -->
+          <section class="mt-8">
+            <div class="grid gap-4 sm:grid-cols-3">
+              <img
+                src="/images/ring-finished.jpeg"
+                alt="Finished outer ring"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/back-wiring.jpeg"
+                alt="Back of the compass with wiring"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/compass-wiring.jpeg"
+                alt="LED wiring inside the compass"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+            </div>
+          </section>
+
+          <!-- Code -->
+          <section id="code" class="mt-28 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Code
+            </h2>
+
+            <div class="mt-3 grid gap-8 md:grid-cols-[1fr_0.8fr]">
+              <div>
+                <p class="mt-5 leading-7 text-slate-400">
+                  The code uses the Firebase ESP Client and FastLED libraries.
+                  Once per minute, the ESP32 fetches brightness, hue,
+                  saturation, variation, and other parameters from a personal
+                  Firebase database. WiFi also provides the time data.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  A linear brightness function runs as an ESP32 task, gradually
+                  increasing the brightness over 30 minutes without sacrificing
+                  the compass animation.
+                </p>
+              </div>
+
+              <a
+                href="https://github.com/Padimo/sunriseclock"
+                target="_blank"
+                rel="noreferrer"
+                class="group self-start flex h-64 flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.035] p-6 transition hover:border-[#aaccff]/40 hover:bg-white/[0.055]"
+              >
+                <span class="text-xs uppercase tracking-[0.2em] text-slate-500"
+                  >Source code</span
+                >
+                <div>
+                  <div class="text-xl font-medium text-white">
+                    github.com/Padimo/sunriseclock
+                  </div>
+                  <div
+                    class="mt-2 text-sm text-slate-500 transition group-hover:text-[#aaccff]"
+                  >
+                    View the project →
+                  </div>
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <!-- Lessons -->
+          <section id="lessons" class="mt-28 scroll-mt-16 pb-24">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Final Thoughts
+            </h2>
+
+            <div class="mt-8">
+              <p class="text-lg leading-8 text-slate-300">
+                If I made another version, I would separate the ring lamp from
+                the word clock and compass network. The complete assembly became
+                difficult to handle, and the ring was heavy enough that the
+                supporting structure needed to be treated carefully.
+              </p>
+
+              <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl bg-white/[0.035] p-5">
+                  <div class="text-sm font-medium text-white">Mechanical</div>
+                  <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Split the heavy ring from the central assembly for easier
+                    installation and handling.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-white/[0.035] p-5">
+                  <div class="text-sm font-medium text-white">Optical</div>
+                  <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Rework the word mask so the display remains readable in
+                    brighter conditions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="mt-10 flex items-center justify-between border-t border-white/10 pt-6 text-xs text-slate-600"
+            >
+              <span>Sunrise Alarm Clock</span>
+              <a href="#overview" class="transition hover:text-slate-300"
+                >Back to top ↑</a
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

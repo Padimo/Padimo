@@ -1,0 +1,336 @@
+---
+import "../../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A five-string electric violin built from 3D-printed parts, carbon-fiber reinforcement, and a piezoelectric pickup."
+    />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Five-String Electric Violin</title>
+  </head>
+
+  <body
+    class="bg-[#0b1126] text-slate-200 selection:bg-[#aaccff] selection:text-[#113399]"
+  >
+    <div
+      class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0"
+    >
+      <div class="lg:flex lg:justify-between lg:gap-16">
+        <header
+          class="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[38%] lg:min-w-[360px] lg:flex-col lg:justify-center lg:py-16 mb-10"
+        >
+          <div
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-8 shadow-2xl shadow-blue-950/20 backdrop-blur"
+          >
+            <div
+              class="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl"
+            >
+            </div>
+
+            <p
+              class="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[#aaccff]"
+            >
+              Project Writeup
+            </p>
+
+            <h1
+              class="mb-4 text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              Five-String<br />Electric Violin
+            </h1>
+
+            <p class="max-w-sm text-base leading-7 text-slate-400">
+              A 3D-printed five-string instrument built to extend the range of a
+              violin and shape its sound electronically.
+            </p>
+
+            <nav class="mt-8 hidden lg:block">
+              <div class="space-y-5">
+                <a
+                  href="#overview"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Overview
+                </a>
+
+                <a
+                  href="#construction"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Build
+                </a>
+
+                <a
+                  href="#electronics"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Electronics
+                </a>
+
+                <a
+                  href="#iteration"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Iteration
+                </a>
+
+                <a
+                  href="#experience"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Use
+                </a>
+
+                <a
+                  href="#lessons"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Final Thoughts
+                </a>
+
+                <a
+                  href="/projects"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-[#aaccff] transition hover:text-white"
+                >
+                  <span
+                    class="h-px w-10 bg-[#aaccff] transition-all group-hover:w-16"
+                  ></span>
+                  Return to Projects
+                </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <main class="w-full lg:w-[62%] lg:py-24">
+          <section id="overview" class="scroll-mt-16">
+            <div
+              class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035]"
+            >
+              <img
+                src="/images/violin-hero.png"
+                alt="Fully assembled five-string electric violin"
+                class="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+
+            <div class="mt-8">
+              <p class="text-lg leading-8 text-slate-300">
+                I started this project because I wanted to improvise below the
+                range of a standard violin. After finding a five-string JAx
+                Dragon Violin model, I decided to try building it myself.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                My first attempt failed when the hot-glue joints could not
+                withstand the tension of even a single string. The second
+                attempt used a much more substantial mechanical structure:
+                printed PLA parts, M4 hardware, and a carbon-fiber rod running
+                through the instrument.
+              </p>
+            </div>
+          </section>
+
+          <section id="construction" class="mt-20 scroll-mt-16">
+            <div
+              class="mt-8 grid gap-8 md:grid-cols-[1fr_1.1fr] md:items-center"
+            >
+              <div>
+                <h2
+                  class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff] mb-6"
+                >
+                  Construction
+                </h2>
+                <p class="leading-7 text-slate-400">
+                  The main fingerboard pieces were printed in black PLA and the
+                  decorative frame in metallic teal PLA. A 300 mm carbon-fiber
+                  rod provides internal structural support, while M4 nuts and
+                  screws hold the printed sections together.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  The result is a printed instrument that can actually carry the
+                  mechanical load imposed by five strings.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <img
+                  src="/images/violin-labeled.png"
+                  alt="Labeled printed parts of the electric violin"
+                  class="w-full rounded-2xl border border-white/10"
+                />
+                <img
+                  src="/images/violin-exploded.png"
+                  alt="Exploded view of the electric violin"
+                  class="w-full rounded-2xl border border-white/10"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="electronics" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Electronics
+            </h2>
+
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">01</div>
+                <h3 class="mt-8 text-xl font-medium text-white">Tuning</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Guitar tuners replace typical violin pegs, providing a useful
+                  balance between tuning range and control over intonation.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">02</div>
+                <h3 class="mt-8 text-xl font-medium text-white">Pickup</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  A violin under-bridge piezoelectric pickup feeds a
+                  preamplifier mounted beneath the guitar tuners.
+                </p>
+              </article>
+            </div>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <img
+                src="/images/violin-tuners.png"
+                alt="Guitar tuners and piezoelectric pickup"
+                class="aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/violin-amp.png"
+                alt="Guitar amplifier and Logitech speaker system"
+                class="aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover"
+              />
+            </div>
+
+            <p class="mt-6 max-w-2xl leading-7 text-slate-400">
+              For amplification, I tested several speakers before settling on a
+              portable Logitech speaker system. A six-setting guitar amplifier
+              provides control over volume and frequency ranges.
+            </p>
+          </section>
+
+          <section id="iteration" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Iteration
+            </h2>
+
+            <div
+              class="mt-8 rounded-3xl border border-white/10 bg-white/[0.035] p-7 sm:p-9"
+            >
+              <p class="text-lg leading-8 text-slate-300">
+                The first structural reinforcement was not long enough. After
+                the fingerboard snapped at the end of the carbon-fiber rod, I
+                measured the channel and determined that I needed roughly 380 mm
+                of reinforcement. I purchased a 400 mm rod and cut it to size.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                I also found that one joint left the fingerboard slightly
+                angled. A small hot-glue wedge corrected the angle and brought
+                the playing surface back into alignment.
+              </p>
+            </div>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <img
+                src="/images/violin-structure.png"
+                alt="Carbon fiber rod through the central body of the violin"
+                class="w-full rounded-2xl border border-white/10"
+              />
+              <img
+                src="/images/violin-playing.png"
+                alt="Playing the five-string electric violin"
+                class="w-full rounded-2xl border border-white/10 object-cover"
+              />
+            </div>
+          </section>
+
+          <section id="experience" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              In use
+            </h2>
+            <p class="mt-6 max-w-2xl leading-7 text-slate-400">
+              Because the electric violin conducts much less sound into my
+              jawbone than an acoustic violin, I can hear something closer to
+              what an audience hears. The amplifier also lets me directly shape
+              the sound by adjusting specific frequency ranges.
+            </p>
+            <div
+              class="mt-8 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035]"
+            >
+              <img
+                src="/images/violin-playing-2.png"
+                alt="Playing an arrangement for five-string violin"
+                class="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+          </section>
+
+          <section id="lessons" class="mt-20 scroll-mt-16 pb-24">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Final Thoughts
+            </h2>
+            <div class="mt-8">
+              <p class="text-lg leading-8 text-slate-300">
+                This has become one of my favorite projects because it is
+                responsive to what I do in the moment.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                Having a lower fifth string has expanded my improvisation into
+                wider scales and deeper tones, and I have used the instrument to
+                play arrangements such as Bach's Courante for five-string
+                violin. I plan to continue creating my own musical instruments.
+              </p>
+            </div>
+            <div
+              class="mt-10 flex items-center justify-between border-t border-white/10 pt-6 text-xs text-slate-600"
+            >
+              <span>Five-String Electric Violin</span>
+              <a href="#overview" class="transition hover:text-slate-300"
+                >Back to top ↑</a
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

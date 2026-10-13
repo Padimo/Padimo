@@ -1,0 +1,332 @@
+---
+import "../../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A custom WS2812B word clock built with an Arduino Nano, DS3231 RTC, and capacitive touch controls."
+    />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>WordClock</title>
+  </head>
+
+  <body
+    class="bg-[#0b1126] text-slate-200 selection:bg-[#aaccff] selection:text-[#113399]"
+  >
+    <div
+      class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0"
+    >
+      <div class="lg:flex lg:justify-between lg:gap-16">
+        <header
+          class="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[38%] lg:min-w-[360px] lg:flex-col lg:justify-center lg:py-16 mb-10"
+        >
+          <div
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-8 shadow-2xl shadow-blue-950/20 backdrop-blur"
+          >
+            <div
+              class="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl"
+            >
+            </div>
+
+            <p
+              class="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[#aaccff]"
+            >
+              Project Writeup
+            </p>
+
+            <h1
+              class="mb-4 text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              Word<br />Clock
+            </h1>
+
+            <p class="max-w-sm text-base leading-7 text-slate-400">
+              A quiet, quarter-hour word clock built as a personalized office
+              decoration.
+            </p>
+
+            <nav class="mt-8 hidden lg:block">
+              <div class="space-y-5">
+                <a
+                  href="#overview"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Overview
+                </a>
+
+                <a
+                  href="#construction"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Build
+                </a>
+
+                <a
+                  href="#controls"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Controls
+                </a>
+
+                <a
+                  href="#code"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Code
+                </a>
+
+                <a
+                  href="#lessons"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Final Thoughts
+                </a>
+
+                <a
+                  href="/projects"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-[#aaccff] transition hover:text-white"
+                >
+                  <span
+                    class="h-px w-10 bg-[#aaccff] transition-all group-hover:w-16"
+                  ></span>
+                  Return to Projects
+                </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <main class="w-full lg:w-[62%] lg:py-24">
+          <section id="overview" class="scroll-mt-16">
+            <div
+              class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035]"
+            >
+              <img
+                src="/images/wordclock-hero.png"
+                alt="Word clock sitting on a desk"
+                class="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+            <div class="mt-8">
+              <p class="text-lg leading-8 text-slate-300">
+                I built this word clock for my mom while she was redecorating
+                her office around Christmas. I wanted to give her something
+                interesting for the space, and after discovering clocks that
+                tell time with words, I decided to build my own.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                The project is divided into two parts: construction and code.
+              </p>
+            </div>
+          </section>
+
+          <section id="construction" class="mt-20 scroll-mt-16">
+            <div
+              class="mt-8 grid gap-8 md:grid-cols-[1fr_1.1fr] md:items-center"
+            >
+              <div>
+                <h2
+                  class="mb-8 text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+                >
+                  Construction
+                </h2>
+                <p class="leading-7 text-slate-400">
+                  The core is an Arduino Nano connected to a DS3231 real-time
+                  clock and four TTP223 capacitive touch sensors. It drives an
+                  8×8 matrix of WS2812B LEDs from a 5 V adapter.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  I used the layout from mlesniew's word-clock repository as a
+                  starting point. Its hidden unlit letters and quarter-hour time
+                  resolution made it especially appealing for an office where I
+                  wanted the display to stay relatively unobtrusive.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <img
+                  src="/images/wordclock-back.png"
+                  alt="Back of the word clock showing electronics"
+                  class="w-full rounded-2xl border border-white/10"
+                />
+                <img
+                  src="/images/wordclock-layout.png"
+                  alt="Word clock letter layout"
+                  class="w-full rounded-2xl border border-white/10"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="controls" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Controls
+            </h2>
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">01</div>
+                <h3 class="mt-4 text-xl font-medium text-white">Brightness</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  The top and bottom-right touch pads control LED brightness.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">02</div>
+                <h3 class="mt-4 text-xl font-medium text-white">Color</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  The bottom-left pad cycles through aquamarine, orange,
+                  magenta, red, green, and blue.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">03</div>
+                <h3 class="mt-4 text-xl font-medium text-white">
+                  Time setting
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  The top-left pad switches between time-setting mode and normal
+                  operation.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">04</div>
+                <h3 class="mt-4 text-xl font-medium text-white">
+                  Hour & minute
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  In setting mode, the right-side pads select the hour and
+                  minute values.
+                </p>
+              </article>
+            </div>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <img
+                src="/images/wordclock-hand.png"
+                alt="Word clock being held during construction"
+                class="w-full rounded-2xl border border-white/10"
+              />
+              <img
+                src="/images/wordclock-lit.png"
+                alt="Word clock displaying the time"
+                class="w-full rounded-2xl border border-white/10"
+              />
+            </div>
+          </section>
+
+          <section id="code" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Code
+            </h2>
+            <div
+              class="mt-8 grid gap-8 md:grid-cols-[1fr_0.8fr] md:items-start"
+            >
+              <div>
+                <p class="leading-7 text-slate-400">
+                  The clock gets its time from the DS3231 RTC using Adafruit's
+                  RTClib and uses FastLED to control the WS2812B matrix.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  I first mapped the physical WS2812B layout and created
+                  reference arrays for each word. The controls then map directly
+                  to brightness, color, and the time-setting state.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  Because the matrix can only display numbers through twelve,
+                  minutes are represented as two digits using the number of
+                  illuminated letters in the words “quarter” and the
+                  corresponding digit.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <span class="text-xs uppercase tracking-[0.2em] text-slate-500"
+                  >Source code</span
+                >
+                <div class="mt-8 text-xl font-medium text-white break-words">
+                  github.com/Padimo/wordclock-ws2812b
+                </div>
+                <a
+                  href="https://github.com/Padimo/wordclock-ws2812b"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="mt-3 block text-sm text-slate-500 transition hover:text-[#aaccff]"
+                >
+                  View the project →
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section id="lessons" class="mt-20 scroll-mt-16 pb-24">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Final Thoughts
+            </h2>
+            <div class="mt-8">
+              <p class="text-lg leading-8 text-slate-300">
+                This has been one of my most successful projects because it is
+                relatively simple while still being a unique addition to the
+                original project that inspired it.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                I intentionally left out the original time-change animation and
+                front glass panel because I wanted users to see the complete
+                layout and because the clock was intended to remain unobtrusive
+                during meetings.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                I later used many of the same mechanisms and code for the word
+                clock that I integrated into my sunrise alarm clock. At some
+                point, I would like to make a larger, higher-quality version
+                with minute-level precision.
+              </p>
+            </div>
+            <div
+              class="mt-10 flex items-center justify-between border-t border-white/10 pt-6 text-xs text-slate-600"
+            >
+              <span>WordClock</span>
+              <a href="#overview" class="transition hover:text-slate-300"
+                >Back to top ↑</a
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

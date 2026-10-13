@@ -1,0 +1,280 @@
+---
+import "../../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="preconnect" href="https://rsms.me/" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <title>Projects · Aadarsh Shah</title>
+    </head>
+
+    <body
+        style="background: radial-gradient(
+                    600px at 447px 329px,
+                    rgba(16, 78, 216, 0.15),
+                    transparent 80%
+                );
+                background-color: #10172f;
+                background-attachment: fixed;"
+        class="selection:bg-[#aaccff] selection:text-[#113399]"
+    >
+        <div
+            class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16"
+        >
+            <main>
+                <!-- HEADER -->
+                <header class="mb-20 max-w-2xl">
+                    <a
+                        href="/"
+                        class="text-sm text-slate-500 transition hover:text-[#aaccff] "
+                    >
+                        ← Home
+                    </a>
+
+                    <h1
+                        class="mt-4 text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl"
+                    >
+                        Projects
+                    </h1>
+
+                    <p class="mt-2 text-lg leading-8 text-slate-400">
+                        A collection of things I've built.
+                    </p>
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1ewDdacu3LTAu9qC95ut6YmHsJdNidLHP?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-2 inline-flex items-center gap-2 rounded-md border border-slate-500/40 px-4 py-2 text-sm font-medium text-slate-400 transition hover:border-[#aaccff]/50 hover:text-[#aaccff]"
+                    >
+                        View Full PDF Writeups
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M7 17 17 7"></path>
+                            <path d="M7 7h10v10"></path>
+                        </svg>
+                    </a>
+                </header>
+
+                <div class="grid gap-6 sm:grid-cols-2">
+                    <!-- <article
+                        class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] transition hover:border-[#aaccff]/40 hover:bg-white/[0.055]"
+                    >
+                        <a href="/projects/project-six" class="group block">
+                            <div
+                                class="flex aspect-[16/10] items-center justify-center bg-white/[0.035] text-sm text-slate-600 transition group-hover:text-[#aaccff]"
+                            >
+                                Project image
+                            </div>
+                        </a>
+
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-slate-200">
+                                Wrist-based EMG
+                            </h2>
+
+                            <p class="mt-5 leading-7 text-slate-400">
+                                Summary of the project goes here.
+                            </p>
+
+                            <p class="mt-4 leading-7 text-slate-400">
+                                Why I built this project goes here.
+                            </p>
+                        </div>
+                    </article> -->
+
+                    <article
+                        class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] transition hover:border-[#aaccff]/40 hover:bg-white/[0.055]"
+                    >
+                        <a href="/projects/sunrise-clock" class="group block">
+                            <img
+                                src="/images/hero-clock.png"
+                                alt="Sunrise Alarm Clock"
+                                class="aspect-[16/10] w-full object-cover transition group-hover:opacity-90"
+                            />
+                        </a>
+
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-slate-200">
+                                Sunrise Alarm Clock
+                            </h2>
+
+                            <p class="mt-5 leading-7 text-slate-400">
+                                I wanted an alarm clock that I couldn't simply
+                                turn off when I wanted more sleep. The result
+                                combines a word clock, a large light ring, and a
+                                compass-shaped light structure into one physical
+                                device.
+                            </p>
+
+                            <p class="mt-4 leading-7 text-slate-400">
+                                I built it to experiment with physical
+                                interfaces, addressable lighting, 3D printing,
+                                and embedded software while solving a problem I
+                                actually had.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article
+                        class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] transition hover:border-[#aaccff]/40 hover:bg-white/[0.055]"
+                    >
+                        <a href="/projects/electric-violin" class="group block">
+                            <img
+                                src="/images/violin-hero.png"
+                                alt="Five-string electric violin"
+                                class="aspect-[16/10] w-full object-cover transition group-hover:opacity-90"
+                            />
+                        </a>
+
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-slate-200">
+                                Five-String Electric Violin
+                            </h2>
+
+                            <p class="mt-5 leading-7 text-slate-400">
+                                I wanted to experiment with a violin that could
+                                reach lower notes than a conventional
+                                four-string violin. I found a five-string
+                                3D-printable design and decided to build it.
+                            </p>
+
+                            <p class="mt-4 leading-7 text-slate-400">
+                                The project became an exercise in mechanical
+                                design: string tension quickly showed that the
+                                printed pieces needed substantially more
+                                structural support than I originally expected.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- HEXAGON -->
+                    <article
+                        class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] transition hover:border-[#aaccff]/40 hover:bg-white/[0.055]"
+                    >
+                        <a
+                            href="/projects/hexagon-lighting"
+                            class="group block"
+                        >
+                            <img
+                                src="/images/hexagon-room.png"
+                                alt="Hexagon lighting project"
+                                class="aspect-[16/10] w-full object-cover transition group-hover:opacity-90"
+                            />
+                        </a>
+
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-slate-200">
+                                Hexagon Lighting
+                            </h2>
+
+                            <p class="mt-5 leading-7 text-slate-400">
+                                I built a decorative lighting piece using an
+                                ESP32-C3 and addressable LEDs, with capacitive
+                                touch controls for colors, brightness, and
+                                automatic operation.
+                            </p>
+
+                            <p class="mt-4 leading-7 text-slate-400">
+                                I built it as an exploration of embedded
+                                lighting, physical interaction, and creating
+                                interesting animations with inexpensive
+                                hardware.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- ROBOT -->
+                    <article
+                        class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] transition hover:border-[#aaccff]/40 hover:bg-white/[0.055]"
+                    >
+                        <a href="/projects/robot-template" class="group block">
+                            <img
+                                src="/images/robot-board.png"
+                                alt="Robot Template circuit board"
+                                class="aspect-[16/10] w-full object-cover transition group-hover:opacity-90"
+                            />
+                        </a>
+
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-slate-200">
+                                Robot Template
+                            </h2>
+
+                            <p class="mt-5 leading-7 text-slate-400">
+                                A reusable robot controller board built around
+                                an ESP32-S3, designed to provide a common
+                                electronics platform for multiple robot
+                                projects.
+                            </p>
+
+                            <p class="mt-4 leading-7 text-slate-400">
+                                I built it to simplify future robot builds after
+                                discovering that extremely compact boards were
+                                much harder to assemble and debug.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- WORD CLOCK -->
+                    <article
+                        class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] transition hover:border-[#aaccff]/40 hover:bg-white/[0.055]"
+                    >
+                        <a href="/projects/word-clock" class="group block">
+                            <img
+                                src="/images/wordclock-hero.png"
+                                alt="Word clock"
+                                class="aspect-[16/10] w-full object-cover transition group-hover:opacity-90"
+                            />
+                        </a>
+
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-slate-200">
+                                Word Clock
+                            </h2>
+
+                            <p class="mt-5 leading-7 text-slate-400">
+                                A physical clock that displays the time using
+                                illuminated words rather than traditional clock
+                                hands or digits.
+                            </p>
+
+                            <p class="mt-4 leading-7 text-slate-400">
+                                I built it as a relatively simple way to
+                                experiment with addressable LEDs, custom
+                                displays, and physical user controls.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- FOOTER -->
+                <footer class="mt-24 border-t border-white/10 pt-6">
+                    <a
+                        href="/"
+                        class="text-sm text-slate-500 transition hover:text-[#aaccff]"
+                    >
+                        ← Back home
+                    </a>
+                </footer>
+            </main>
+        </div>
+    </body>
+</html>

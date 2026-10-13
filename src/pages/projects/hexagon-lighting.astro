@@ -1,0 +1,317 @@
+---
+import "../../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A wall-mounted hexagon lighting piece built with a XIAO ESP32-C3, WS2812B LEDs, and capacitive touch controls."
+    />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Hexagon Lighting</title>
+  </head>
+
+  <body
+    class="bg-[#0b1126] text-slate-200 selection:bg-[#aaccff] selection:text-[#113399]"
+  >
+    <div
+      class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0"
+    >
+      <div class="lg:flex lg:justify-between lg:gap-16">
+        <header
+          class="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[38%] lg:min-w-[360px] lg:flex-col lg:justify-center lg:py-16 mb-10"
+        >
+          <div
+            class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-8 shadow-2xl shadow-blue-950/20 backdrop-blur"
+          >
+            <div
+              class="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl"
+            >
+            </div>
+
+            <p
+              class="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[#aaccff]"
+            >
+              Project Writeup
+            </p>
+
+            <h1
+              class="mb-4 text-4xl font-medium tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              Hexagon<br />Lighting
+            </h1>
+
+            <p class="max-w-sm text-base leading-7 text-slate-400">
+              A wall-mounted desk lighting solution that doubles as a piece of
+              modern art.
+            </p>
+
+
+            <nav class="mt-8 hidden lg:block">
+              <div class="space-y-5">
+                <a
+                  href="#overview"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Overview
+                </a>
+
+                <a
+                  href="#construction"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                >
+                  <span
+                    class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                  ></span>
+                  Build
+                </a>
+
+                <a
+                  href="/projects"
+                  class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-[#aaccff] transition hover:text-white"
+                >
+                  <span
+                    class="h-px w-10 bg-[#aaccff] transition-all group-hover:w-16"
+                  ></span>
+                  Return to Projects
+                </a>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <main class="w-full lg:w-[62%] lg:py-24">
+          <section id="overview" class="scroll-mt-16">
+            <div
+              class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035]"
+            >
+              <img
+                src="/images/hexagon-room.png"
+                alt="Illuminated hexagon wall art"
+                class="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+            <div class="mt-8">
+              <p class="text-lg leading-8 text-slate-300">
+                My sister's room had a simple lighting problem: the main fixture
+                was centered in the room, so she cast a shadow over her desk. I
+                made this wall-mounted decoration to improve the desk lighting
+                while also making the wall more interesting.
+              </p>
+            </div>
+          </section>
+
+          <section id="construction" class="mt-20 scroll-mt-16">
+            <div
+              class="mt-0 grid gap-8 md:grid-cols-[1fr_1.1fr] md:items-center"
+            >
+              <div>
+                <h2
+                  class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+                >
+                  Construction
+                </h2>
+                <p class="mt-5 leading-7 text-slate-400">
+                  The design was inspired by the Hexaleaf project on
+                  Thingiverse. I liked the larger-hexagon arrangement, but the
+                  original piece was too large, so I designed my own hexagons to
+                  fit the space.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  A XIAO ESP32-C3 handles the control logic and can connect to
+                  home Wi-Fi for time data. TTP223 capacitive touch pads on the
+                  lower hexagon provide user input for brightness and color.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <img
+                  src="/images/hexagon-inside.png"
+                  alt="Inside of the bottom hexagon showing electronics"
+                  class="w-full rounded-2xl border border-white/10"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="layout" class="mt-20 scroll-mt-16">
+            <div
+              class="mt-8 grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center"
+            >
+              <img
+                src="/images/hexagon-layout.png"
+                alt="LED path layout for the hexagon art"
+                class="w-full rounded-2xl border border-white/10"
+              />
+              <div>
+                <h2
+                  class="mb-5 text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+                >
+                  Layout
+                </h2>
+                <p class="leading-7 text-slate-400">
+                  The WS2812B LEDs allow each of the 14 smaller hexagons to have
+                  its own color. Rather than making the LED path snake back and
+                  forth unnecessarily, I used two parallel paths to simplify
+                  assembly.
+                </p>
+                <p class="mt-4 leading-7 text-slate-400">
+                  Each hexagon contains eight LEDs, which provides sufficient
+                  even lighting. The bottom hexagon houses the controls, inputs,
+                  and power jack.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-3">
+              <img
+                src="/images/hexagon-mounted.png"
+                alt="Hexagon art raised from the wall"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/hexagon-blue.png"
+                alt="Blue hexagon lighting pattern"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/hexagon-peach.png"
+                alt="Peach hexagon lighting pattern"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+            </div>
+          </section>
+
+          <section id="code" class="mt-20 scroll-mt-16">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Code
+            </h2>
+            <div class="mt-3">
+              <p class="max-w-2xl leading-7 text-slate-400">
+                I started with FastLED's Pacifica example and reverse engineered
+                the mechanism behind its flowing color effect. I then created a
+                seven-color palette: aquamarine, amethyst purple, lava orange,
+                pine green, sapphire indigo, sunrise peach, and sunset gold.
+              </p>
+              <p class="mt-4 max-w-2xl leading-7 text-slate-400">
+                The bottom-left capacitive touch pad cycles through the palette.
+                Automatic brightness and a weather pattern were also considered,
+                but the ESP32-C3 caused significant WS2812B flicker while
+                connected to Wi-Fi. The device therefore grabs the time over NTP
+                and turns Wi-Fi back off.
+              </p>
+            </div>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-3">
+              <img
+                src="/images/hexagon-green.png"
+                alt="Green hexagon palette pattern"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/hexagon-indigo.png"
+                alt="Indigo hexagon palette pattern"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <img
+                src="/images/hexagon-purple.png"
+                alt="Purple hexagon palette pattern"
+                class="aspect-square w-full rounded-2xl border border-white/10 object-cover"
+              />
+            </div>
+
+            <div class="mt-8 grid gap-4 md:grid-cols-3">
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">01</div>
+                <h3 class="mt-8 text-xl font-medium text-white">Night</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  LEDs off from 8:30 PM to 7:00 AM.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">02</div>
+                <h3 class="mt-8 text-xl font-medium text-white">Day</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Full brightness from 7:00 AM to 8:20 PM.
+                </p>
+              </article>
+              <article
+                class="rounded-2xl border border-white/10 bg-white/[0.035] p-6"
+              >
+                <div class="text-sm text-[#aaccff]">03</div>
+                <h3 class="mt-8 text-xl font-medium text-white">Fade</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-400">
+                  Brightness linearly decays from 8:20 to 8:30 PM.
+                </p>
+              </article>
+            </div>
+
+            <a
+              href="https://github.com/Padimo/sunriseclock"
+              target="_blank"
+              rel="noreferrer"
+              class="group mt-8 block self-start rounded-2xl border border-white/10 bg-white/[0.035] p-6 transition hover:border-[#aaccff]/40 hover:bg-white/[0.055]"
+            >
+              <span class="text-xs uppercase tracking-[0.2em] text-slate-500"
+                >Source code</span
+              >
+              <div class="mt-5 text-xl font-medium text-white">
+                github.com/Padimo/sunriseclock
+              </div>
+              <div
+                class="mt-2 text-sm text-slate-500 transition group-hover:text-[#aaccff]"
+              >
+                View the project →
+              </div>
+            </a>
+          </section>
+
+          <section id="lessons" class="mt-20 scroll-mt-16 pb-24">
+            <h2
+              class="text-xl font-semibold uppercase tracking-[0.22em] text-[#aaccff]"
+            >
+              Final Thoughts
+            </h2>
+            <div class="mt-5">
+              <p class="text-lg leading-8 text-slate-300">
+                It took several iterations to get the hexagon size, LED path,
+                and data connectivity working correctly. The finished piece was
+                appreciated for its movement and color, but it still had
+                usability problems.
+              </p>
+              <p class="mt-5 leading-7 text-slate-400">
+                The power adapter's bright blue indicator had to be unplugged at
+                night, which meant dealing with the boot flicker each morning.
+                The evening auto-brightness transition was also too quick. The
+                piece is beautiful, but it needs more work to become a practical
+                everyday light.
+              </p>
+            </div>
+            <div
+              class="mt-10 flex items-center justify-between border-t border-white/10 pt-6 text-xs text-slate-600"
+            >
+              <span>Hexagon Lighting</span>
+              <a href="#overview" class="transition hover:text-slate-300"
+                >Back to top ↑</a
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

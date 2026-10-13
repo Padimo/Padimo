@@ -1,159 +1,553 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="style2.css"> -->
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Aadarsh Shah</title>
-    <style>
-        :root {
-            font-family: Inter, sans-serif;
-            font-feature-settings: 'liga' 1, 'calt' 1;
-        }
+        <link rel="preconnect" href="https://rsms.me/" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-        @supports (font-variation-settings: normal) {
+        <title>Aadarsh Shah</title>
+
+        <style>
             :root {
-                font-family: InterVariable, sans-serif;
+                font-family: Inter, sans-serif;
+                font-feature-settings:
+                    "liga" 1,
+                    "calt" 1;
             }
-        }
 
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            font-family: "Inter", sans-serif;
-            background: radial-gradient(600px at 447px 329px, rgba(16, 78, 216, 0.15), transparent 80%);
-            background-color: #10172f;
-            background-attachment: fixed;
-        }
+            @supports (font-variation-settings: normal) {
+                :root {
+                    font-family: InterVariable, sans-serif;
+                }
+            }
 
-        p {
-            font-family: "Inter", sans-serif;
-            padding: 25px;
-            color: white;
-            margin: 0 0 30px 0;
-            float: left;
-            text-align: center;
-        }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: "Inter", sans-serif;
+                background: radial-gradient(
+                    600px at 447px 329px,
+                    rgba(16, 78, 216, 0.15),
+                    transparent 80%
+                );
+                background-color: #10172f;
+                background-attachment: fixed;
+            }
+        </style>
+    </head>
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Inter", sans-serif;
-            font-weight: 400;
-            color: white;
-            margin: 0 0 20px 0;
-            padding: 30px;
-        }
+    <body class="selection:bg-[#aaccff] selection:text-[#113399]">
+        <div
+            class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:py-0"
+        >
+            <div class="lg:flex lg:justify-between lg:gap-8">
+                <!-- LEFT SIDE -->
+                <header
+                    class="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[40%] lg:flex-col lg:justify-between lg:py-24"
+                >
+                    <div class="mt-20">
+                        <a href="/" class="block">
+                            <h1
+                                class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl"
+                            >
+                                Aadarsh Shah
+                            </h1>
 
-        .layout {
-            width: 100%;
-            padding: 0 auto;
-        }
+                            <h2
+                                class="text-sm font-bold tracking-tight text-xl text-slate-200"
+                                style="color: #aaccff"
+                            >
+                                Math @ Cornell Arts & Sciences '30
+                            </h2>
 
-        .col1,
-        .col2 {
-            width: 50%;
-            padding: 0 auto;
-            background-attachment: fixed;
-        }
+                            <p
+                                class="mt-6 max-w-sm text-base leading-7 text-slate-400"
+                            >
+                                I like building things.
+                            </p>
+                        </a>
 
-        .col1 {
-            /* background-color: #11172f; */
-            min-height: 100%;
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 30%;
-            z-index: 1;
-        }
+                        <!-- Navigation -->
+                        <nav class="mt-20 hidden lg:block">
+                            <div class="space-y-5">
+                                <a
+                                    href="#about"
+                                    class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                                >
+                                    <span
+                                        class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                                    ></span>
+                                    About
+                                </a>
 
-        .col2 {
-            color: white;
-            float: right;
-            /* background-color: #11172f; */
-            left: 0;
-            right: 0;
-            top: 0;
-            z-index: 1;
-        }
+                                <a
+                                    href="#experience"
+                                    class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                                >
+                                    <span
+                                        class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                                    ></span>
+                                    Experience
+                                </a>
 
-        #stats {
-            text-align: center;
-        }
-
-        #about {
-            margin: 0 auto;
-            width: 100%;
-            color: white;
-            position: relative;
-            text-align: left;
-            min-height: 500px;
-        }
-
-        #projectwrapper {
-            margin: 0 auto;
-            width: 100%;
-            color: white;
-            position: relative;
-            text-align: left;
-            min-height: 500px;
-        }
-
-        .inter20b187 {
-            --font-inter: "__inter_20b187", "__inter_Fallback_20b187";
-        }
-    </style>
-
-</head>
-
-
-<body class="selection:bg-teal-300 selection:text-teal-900">
-    <div class="inter20b187 mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
-        <div class="lg:flex lg:justify-between lg:gap-8">
-            <header class="lg:sticky lg:top-10 lg:flex lg:max-h-[calc(100vh-11.5rem)] lg:overflow-y-auto lg:min-w-[40%] lg:flex-col lg:justify-between lg:py-18">
-                <div id="welcome" class="flex justify-center">
-                    <h1 class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl"
-                        style="opacity: 1; filter: blur(0px); transform: none;">Aadarsh Shah</h1>
-                </div>
-            </header>
-            <div class="content lg:overflow-y-auto">
-                <section id="about">
-                    <div id="intro">
-                        <h3>About </h3>
+                                <a
+                                    href="#projects"
+                                    class="group flex items-center gap-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-500 transition hover:text-slate-200"
+                                >
+                                    <span
+                                        class="h-px w-10 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-300"
+                                    ></span>
+                                    Projects
+                                </a>
+                            </div>
+                        </nav>
                     </div>
-                </section>
 
-                <section id="projectwrapper">
-                    <div id="projects">
-                        <h3>Projects </h3>
-                        <p>Nothing to show just yet :(</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique ligula at mi blandit, eget consectetur nunc tempus. Donec cursus libero vel finibus porttitor. Donec at vehicula turpis. Ut massa lectus, hendrerit eu dui ut, lacinia dapibus urna. Nam vestibulum, magna nec dignissim sollicitudin, odio mi iaculis est, eget lobortis ligula justo sit amet lectus. Nam congue mattis felis nec tincidunt. Morbi tempus leo non ipsum pulvinar elementum.
+                    <!-- SOCIAL LINKS -->
+                    <div class="mt-16 flex items-center gap-6 pb-4">
+                        <!-- GitHub -->
+                        <a
+                            href="https://github.com/Padimo"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="GitHub"
+                            class="text-slate-500 transition hover:-translate-y-1 hover:text-[#aaccff]"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                class="h-6 w-6 fill-current"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.1c-3.2.7-3.87-1.35-3.87-1.35-.53-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18A10.9 10.9 0 0 1 12 6.1c.97 0 1.94.13 2.85.38 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.08.78 2.18v3.23c0 .3.21.65.8.54A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+                                ></path>
+                            </svg>
+                        </a>
 
-Vivamus tristique ut nisl eu auctor. Etiam at lectus congue, bibendum leo ut, dignissim sapien. Sed eget elit sapien. Cras pellentesque nisi purus, quis consectetur est tristique viverra. Nunc volutpat tellus eget rutrum euismod. Sed vehicula et tortor vitae tempus. Sed hendrerit egestas leo nec feugiat.
-
-Sed efficitur ante a nunc pellentesque, ut vestibulum ante tincidunt. Integer nec nisl nec augue auctor cursus. In a justo pretium, laoreet urna vitae, sagittis erat. Nam ex nulla, egestas sit amet ullamcorper a, maximus vitae leo. Nulla sed ultrices leo, vitae molestie leo. Pellentesque egestas suscipit erat, et tincidunt risus lacinia quis. Morbi at tincidunt augue. Duis blandit tortor nec odio interdum ornare. Cras nibh tortor, iaculis ut nibh ullamcorper, pellentesque fringilla nisl. Aenean eget faucibus urna. Aliquam luctus tristique nisi, eu lacinia erat imperdiet eget.
-
-In erat enim, condimentum non pulvinar eu, eleifend luctus ex. Suspendisse potenti. Maecenas et ex vel nibh fringilla dictum sed sed turpis. Sed vel lacinia velit. Pellentesque fermentum sodales risus, ac pharetra tortor faucibus nec. Donec consectetur, tellus non porta dapibus, diam dolor suscipit velit, sed pulvinar tellus ligula nec quam. Vivamus volutpat finibus ornare. Nulla a ultricies lectus. Cras nec dui sed libero fringilla tincidunt ac in nulla. Vivamus a molestie ligula. Etiam eu lacinia lorem, sed faucibus ligula. Nam sit amet ligula sed neque sollicitudin mattis id id mauris. Quisque mollis imperdiet diam, ut fringilla erat pellentesque nec. Curabitur ante eros, finibus vitae orci vitae, consequat tristique massa.
-
-</p>
+                        <!-- LinkedIn -->
+                        <a
+                            href="https://www.linkedin.com/in/aadarsh-shah/"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="LinkedIn"
+                            class="text-slate-500 transition hover:-translate-y-1 hover:text-[#aaccff]"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                class="h-6 w-6 fill-current"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.68H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45h3.57V8.99H3.54v11.46ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z"
+                                ></path>
+                            </svg>
+                        </a>
                     </div>
-                </section>
+                </header>
+
+                <!-- RIGHT SIDE -->
+                <main class="w-full lg:w-[60%] lg:py-24">
+                    <!-- ABOUT -->
+                    <section id="about" class="scroll-mt-16 pb-28">
+                        <h2
+                            class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500"
+                        >
+                            About
+                        </h2>
+
+                        <div
+                            class="mt-8 max-w-2xl space-y-5 text-base leading-7 text-slate-400"
+                        >
+                            <p>
+                                Hi! I'm Aadarsh, and I like working with my
+                                hands.
+                            </p>
+                            <p>
+                                I build things that combine engineering,
+                                software, electronics, and physical design.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- EXPERIENCE -->
+                    <section id="experience" class="scroll-mt-16 pb-28">
+                        <h2
+                            class="mb-8 text-xs font-bold uppercase tracking-[0.2em] text-slate-500"
+                        >
+                            Experience
+                        </h2>
+
+                        <div class="space-y-2">
+                            <!-- EXPERIENCE 1 -->
+                            <article
+                                class="group rounded-xl px-5 py-6 transition hover:bg-white/[0.035]"
+                            >
+                                <div
+                                    class="grid gap-4 sm:grid-cols-[150px_1fr]"
+                                >
+                                    <div
+                                        class="text-xs font-medium uppercase tracking-wider text-slate-500"
+                                    >
+                                        2023-2026
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="text-lg font-medium text-slate-200"
+                                        >
+                                            Researcher · Mueller Laboratory for
+                                            Additive Manufacturing
+                                        </h3>
+
+                                        <p
+                                            class="mt-4 text-sm leading-7 text-slate-400"
+                                        >
+                                            Explored the use of elastic
+                                            materials to create a nozzle with a
+                                            variable diameter to improve 3D
+                                            printing speed, allow for dynamic
+                                            resolution control, and more
+                                            eﬀectively navigate complex
+                                            geometries while requiring less
+                                            support.
+                                        </p>
+
+                                        <p
+                                            class="mt-4 text-sm leading-7 text-slate-400"
+                                        >
+                                            Applied a core-segmented shell
+                                            nozzle to create quick, flexible
+                                            circuit boards for testing
+                                            electronics designs to precisely
+                                            control the material properties of
+                                            interfaces where voxels meet,
+                                            enabling the integration of optical,
+                                            mechanical, and electrical
+                                            properties. Individual contribution:
+                                            Used Arduino microcontrollers to
+                                            convert these circuit boards into
+                                            soft electronic input devices.
+                                        </p>
+
+                                        <p
+                                            class="mt-4 text-sm leading-7 text-slate-400"
+                                        >
+                                            D. C. Ames, S. Propst, <b>A. Shah</b
+                                            >, J. Mueller, Volxel Interface
+                                            Control in Multimaterial Extrusion
+                                            3D Printing. Adv. Mater. 2024, 36,
+                                            2407599.
+                                        </p>
+
+                                        <a
+                                            href="https://doi.org/10.1002/adma.202407599"
+                                            class="text-sm text-slate-500 transition hover:text-[#aaccff]"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            >https://doi.org/10.1002/adma.202407599</a
+                                        >
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- EXPERIENCE 2
+                            <article
+                                class="group rounded-xl px-5 py-6 transition hover:bg-white/[0.035]"
+                            >
+                                <div
+                                    class="grid gap-4 sm:grid-cols-[150px_1fr]"
+                                >
+                                    <div
+                                        class="text-xs font-medium uppercase tracking-wider text-slate-500"
+                                    >
+                                        TIME RANGE
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="text-lg font-medium text-slate-200"
+                                        >
+                                            Position · Organization
+                                        </h3>
+
+                                        <p
+                                            class="mt-4 text-sm leading-7 text-slate-400"
+                                        >
+                                            Describe what you did here.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article> -->
+
+                            <!-- EXPERIENCE 3 
+                            <article
+                                class="group rounded-xl px-5 py-6 transition hover:bg-white/[0.035]"
+                            >
+                                <div
+                                    class="grid gap-4 sm:grid-cols-[150px_1fr]"
+                                >
+                                    <div
+                                        class="text-xs font-medium uppercase tracking-wider text-slate-500"
+                                    >
+                                        TIME RANGE
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="text-lg font-medium text-slate-200"
+                                        >
+                                            Position · Organization
+                                        </h3>
+
+                                        <p
+                                            class="mt-4 text-sm leading-7 text-slate-400"
+                                        >
+                                            Describe what you did here.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article> -->
+                        </div>
+                    </section> 
+
+                    <!-- PROJECTS -->
+                    <section id="projects" class="scroll-mt-16 pb-24">
+                        <div class="mb-8 flex items-end justify-between">
+                            <h2
+                                class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500"
+                            >
+                                Projects
+                            </h2>
+
+                            <a
+                                href="/projects"
+                                class="text-sm text-slate-500 transition hover:text-[#aaccff]"
+                            >
+                                View all →
+                            </a>
+                        </div>
+
+                        <div class="space-y-2">
+                            <!-- PROJECT 1 -->
+                            <a
+                                href="/projects/sunrise-clock"
+                                class="group block rounded-xl px-5 py-7 transition hover:bg-white/[0.035]"
+                            >
+                                <div
+                                    class="grid gap-4 sm:grid-cols-[150px_1fr]"
+                                >
+                                    <div
+                                        class="text-xs font-medium uppercase tracking-wider text-slate-500"
+                                    >
+                                        Project
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="text-lg font-medium text-slate-200 transition group-hover:text-[#aaccff]"
+                                        >
+                                            Sunrise Alarm Clock
+                                            <span class="ml-1">↗</span>
+                                        </h3>
+
+                                        <p
+                                            class="mt-3 text-sm leading-7 text-slate-400"
+                                        >
+                                            A large, custom alarm clock
+                                            combining a word clock, sunrise
+                                            lighting, and a compass-shaped light
+                                            structure.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- PROJECT 2 -->
+                            <a
+                                href="/projects/electric-violin"
+                                class="group block rounded-xl px-5 py-7 transition hover:bg-white/[0.035]"
+                            >
+                                <div
+                                    class="grid gap-4 sm:grid-cols-[150px_1fr]"
+                                >
+                                    <div
+                                        class="text-xs font-medium uppercase tracking-wider text-slate-500"
+                                    >
+                                        Project
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="text-lg font-medium text-slate-200 transition group-hover:text-[#aaccff]"
+                                        >
+                                            Five-String Electric Violin
+                                            <span class="ml-1">↗</span>
+                                        </h3>
+
+                                        <p
+                                            class="mt-3 text-sm leading-7 text-slate-400"
+                                        >
+                                            A 3D-printed five-string electric
+                                            violin designed around the
+                                            structural challenges created by
+                                            string tension.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- PROJECT 3 -->
+                            <a
+                                href="/projects/hexagon-lighting"
+                                class="group block rounded-xl px-5 py-7 transition hover:bg-white/[0.035]"
+                            >
+                                <div
+                                    class="grid gap-4 sm:grid-cols-[150px_1fr]"
+                                >
+                                    <div
+                                        class="text-xs font-medium uppercase tracking-wider text-slate-500"
+                                    >
+                                        Project
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="text-lg font-medium text-slate-200 transition group-hover:text-[#aaccff]"
+                                        >
+                                            Hexagon Lighting
+                                            <span class="ml-1">↗</span>
+                                        </h3>
+
+                                        <p
+                                            class="mt-3 text-sm leading-7 text-slate-400"
+                                        >
+                                            An ESP32-powered decorative light
+                                            using addressable LEDs, capacitive
+                                            controls, color palettes, and
+                                            automatic brightness.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- PROJECT 4 -->
+                            <a
+                                href="/projects/robot-template"
+                                class="group block rounded-xl px-5 py-7 transition hover:bg-white/[0.035]"
+                            >
+                                <div
+                                    class="grid gap-4 sm:grid-cols-[150px_1fr]"
+                                >
+                                    <div
+                                        class="text-xs font-medium uppercase tracking-wider text-slate-500"
+                                    >
+                                        Project
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="text-lg font-medium text-slate-200 transition group-hover:text-[#aaccff]"
+                                        >
+                                            Robot Template
+                                            <span class="ml-1">↗</span>
+                                        </h3>
+
+                                        <p
+                                            class="mt-3 text-sm leading-7 text-slate-400"
+                                        >
+                                            A reusable robot controller board
+                                            designed around an ESP32-S3, motor
+                                            control, and magnetic orientation
+                                            sensing.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- PROJECT 5 -->
+                            <a
+                                href="/projects/word-clock"
+                                class="group block rounded-xl px-5 py-7 transition hover:bg-white/[0.035]"
+                            >
+                                <div
+                                    class="grid gap-4 sm:grid-cols-[150px_1fr]"
+                                >
+                                    <div
+                                        class="text-xs font-medium uppercase tracking-wider text-slate-500"
+                                    >
+                                        Project
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="text-lg font-medium text-slate-200 transition group-hover:text-[#aaccff]"
+                                        >
+                                            Word Clock
+                                            <span class="ml-1">↗</span>
+                                        </h3>
+
+                                        <p
+                                            class="mt-3 text-sm leading-7 text-slate-400"
+                                        >
+                                            An LED word clock using an
+                                            addressable LED matrix and physical
+                                            touch controls.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- PROJECT 6
+                    <a
+                        href="/projects/project-six"
+                        class="group block rounded-xl px-5 py-7 transition hover:bg-white/[0.035]"
+                    >
+
+                        <div class="grid gap-4 sm:grid-cols-[150px_1fr]">
+
+                            <div class="text-xs font-medium uppercase tracking-wider text-slate-500">
+                                Project
+                            </div>
+
+                            <div>
+
+                                <h3 class="text-lg font-medium text-slate-200 transition group-hover:text-[#aaccff]">
+                                    Project Six
+                                    <span class="ml-1">↗</span>
+                                </h3>
+
+                                <p class="mt-3 text-sm leading-7 text-slate-400">
+                                    A placeholder for another project.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a> -->
+                        </div>
+
+                        <div
+                            class="mt-10 border-t border-white/10 pt-6 text-xs text-slate-600"
+                        >
+                            <a
+                                href="#about"
+                                class="transition hover:text-slate-300"
+                            >
+                                Back to top ↑
+                            </a>
+                        </div>
+                    </section>
+                </main>
             </div>
         </div>
-
-    </div>
-</body>
-
+    </body>
 </html>
